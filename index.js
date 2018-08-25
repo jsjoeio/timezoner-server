@@ -14,7 +14,7 @@ app.use(
   })
 )
 
-app.get('/', (req, res) => res.send('Hey! You\'re not supposed to be here! 😱))
+app.get('/', (req, res) => res.send('Hey! You\'re not supposed to be here! 😱'))
 
 app.post('/api/bitly/', cors(), (req, res) => {
   const longUrl = req.body.long_url
