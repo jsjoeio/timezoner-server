@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
+    "deploy": "now --public && now alias",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,8 +20,5 @@
   "devDependencies": {
     "dotenv": "^6.0.0",
     "nodemon": "^1.18.3"
-  },
-  "now": {
-    "alias": "timezoner-server.now.sh"
   }
 }
