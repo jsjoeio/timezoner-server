@@ -10,13 +10,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(cors())
 
-app.get('/', (req, res) => res.send('Hey! You\'re not supposed to be here! 😱'))
+app.get('/', (req, res) => res.send("Hey! You're not supposed to be here! 😱"))
 
 app.post('/api/bitly/', (req, res) => {
   const longUrl = req.body.long_url
   const options = {
     headers: {
-      Authorization: `Bearer ${process.env.TOKEN}`,
+      Authorization: `Bearer ${process.env.BITLY_TOKEN}`,
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
@@ -26,7 +26,7 @@ app.post('/api/bitly/', (req, res) => {
     .post(
       'https://api-ssl.bitly.com/v4/shorten',
       {
-        group_guid: process.env.GROUP_GUID,
+        group_guid: process.env.BITLY_GROUP_GUID,
         domain: 'bit.ly',
         long_url: longUrl
       },
