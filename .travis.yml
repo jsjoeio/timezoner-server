@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "node"
+cache:
+  directories:
+    - "node_modules"
+script: npm install
+before_deploy: npm install now --no-save # Install Now CLI on Travis
+deploy:
+  - provider: script # Run a custom deployment script which we will define below
+    script: now --token $NOW_TOKEN --public
+    skip_cleanup: true
+    on:
+      all_branches: true
+      master: false
+  - provider: script
+    script: now --token $NOW_TOKEN remove timezoner-server --safe -y && now --token $NOW_TOKEN --public && now --token $NOW_TOKEN alias
+    skip_cleanup: true
+    on:
+      master: true
