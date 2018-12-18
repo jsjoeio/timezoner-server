@@ -1,8 +1,12 @@
 {
+  "version": 2,
   "alias": "timezoner-server.now.sh",
   "env": {
     "BITLY_GROUP_GUID": "@bitly-group-guid",
     "BITLY_TOKEN": "@bitly-token"
   },
-  "name": "timezoner-server"
+  "name": "timezoner-server",
+  "builds": [
+    { "src": "*.js", "use": "@now/node" }
+  ]
 }
