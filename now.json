@@ -7,6 +7,9 @@
   },
   "name": "timezoner-server",
   "builds": [
-    { "src": "*.js", "use": "@now/node" }
+    { "src": "index.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+      { "src": "/(.*)", "dest": "index.js" }
   ]
 }
